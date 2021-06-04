@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-image: linear-gradient(230deg, #532d8c 0%, #f2295b 100%);
+  color: white;
+}
+
+.headerUser {
+  display: flex;
+  align-items: center;
+}
+
+.headerUser p {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  border-radius: 50px;
+}
+
+.pointer {
+  cursor: pointer;
+}

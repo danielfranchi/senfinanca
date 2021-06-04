@@ -1,0 +1,93 @@
+.table {
+  padding-bottom: 2rem;
+
+  /* width: 100%; */
+  /* text-align: center;
+  justify-content: center; */
+
+}
+
+.table th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.table th {
+  color: var(--gray-200);
+  text-transform: uppercase;
+  font: 500 0.75rem Lexend, sans-serif;
+  text-align: left;
+}
+
+.table td {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+
+  width: 960px;
+  margin: auto;
+
+  padding: 50px;
+
+  gap: 20px;
+
+}
+
+.container select {
+  height: 30px;
+
+  width: 50%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  outline-style: none;
+}
+
+.saldo {
+  /* background: #fff;
+  border-radius: 3px;
+  border: 1px solid #e6e6e6; */
+  width: 50%;
+  /* padding: 16px; */
+  /* max-width: 400px; */
+  /* height: 260px; */
+  /* padding: 15px 0; */
+  /* margin: 50px auto; */
+  /* display: flex; */
+  flex-wrap: wrap;
+  /* justify-content: space-between;
+  align-items: center; */
+
+  padding: 10px;
+  margin: 10px;
+
+}
+
+.saldo h1 {
+  width: 80px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+  .saldo span {
+    
+    padding: 0.8rem 1rem;
+    margin-top: 10px;
+  }
+
+.voltar {
+  color: white;
+  /* background: #5f9ea0; */
+  background: #f2295b;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 15px;
+  outline-style: none;
+}

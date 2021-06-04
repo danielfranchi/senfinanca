@@ -1,0 +1,36 @@
+{
+  "finances": [
+    {
+      "titulo": "Shopping",
+      "valor": "300",
+      "tipo": "entrada",
+      "categoria": "roupas",
+      "data": "03-06-21",
+      "id": 6
+    },
+    {
+      "titulo": "Shopping",
+      "valor": "9000",
+      "tipo": "entrada",
+      "categoria": "contas",
+      "data": "03-06-21",
+      "id": 8
+    },
+    {
+      "titulo": "compras",
+      "valor": "200",
+      "tipo": "saida",
+      "categoria": "mercado",
+      "data": "03-06-21",
+      "id": 9
+    },
+    {
+      "titulo": "Shopping",
+      "valor": "100",
+      "tipo": "entrada",
+      "categoria": "roupas",
+      "data": "03-06-21",
+      "id": 10
+    }
+  ]
+}
