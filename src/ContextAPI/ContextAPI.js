@@ -13,6 +13,13 @@ export const Storage = ({children}) => {
     api.get('finances')
     .then((response) => setFinanceData(response.data))
   }, [setFinanceData])
+
+  useEffect(() => {
+    if(addTransaction !== null) {
+      api.post('finances', addTransaction)
+      .then(response => setFinanceData([...financeData, response.data])
+    )} 
+  }, [addTransaction])
   
   const deleteTransaction = (id) => {
     api.delete(`finances/${id}`).then((resposta) => {
@@ -25,21 +32,13 @@ export const Storage = ({children}) => {
       }
     }) 
   } 
-
-  useEffect(() => {
-    if(addTransaction !== null) {
-      api.post('finances', addTransaction)
-      .then(response => setFinanceData([...financeData, response.data])
-    )} 
-  }, [addTransaction])
-
+  
   return (
     <ContextAPI.Provider value={
         { financeData, setFinanceData, 
           addTransaction, setAddTransaction,
           deleteTransaction, 
           update, setUpdate
-          
         }}>
 
       {children}

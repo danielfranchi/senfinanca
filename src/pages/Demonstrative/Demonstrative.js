@@ -1,134 +1,128 @@
 import React, {useState, useContext, useEffect} from 'react'
-import Header from '../../components/Header/Header'
-import { ContextAPI } from "../../ContextAPI/ContextAPI"
+import { Redirect } from "react-router-dom"
 
-import { Redirect } from "react-router-dom";
+import Header from '../../components/Header/Header'
+
+import { ContextAPI } from "../../ContextAPI/ContextAPI"
 
 import styles from "./Demonstrative.module.css"
 
 const Demonstrative = () => {
   const storage = useContext(ContextAPI)
-  const date = storage.financeData
+  const data = storage.financeData
   
-  const [despesas, setDespesas] = useState("")
-  const [categoria, setCategoria] = useState("")
-  const [aa, setAa] = useState(null)
+  const [expenses, setExpenses] = useState("")
+  const [category, setCategory] = useState("")
+  const [newData, setNewData] = useState(null)
   const [total, setTotal] = useState(null)
 
-  const [Voltar, setVoltar] = useState(false)
+  const [initial, setInitial] = useState(false)
 
   useEffect(() => {
-    const newDate = date !== null && date.filter((items) => {
-      return items.tipo === despesas
+    const newDate = data !== null && data.filter((items) => {
+      return items.type === expenses
     })
-    setAa(newDate)
 
-    const soma = newDate !== null && newDate !== false && newDate.map((items) => {
-      return items.tipo === despesas && Number(items.valor)
+    setNewData(newDate)
+
+    const sum = newDate !== null && newDate !== false && newDate.map((items) => {
+      return items.type === expenses && Number(items.value)
     }).reduce((a,b) => a + b, 0)
 
-    setTotal(soma)
-
-  }, [despesas])
+    setTotal(sum)
+  }, [expenses])
 
   useEffect(() => {
-    const newDate = date !== null && date.filter((items) => {
-      return items.categoria === categoria
+    const newDate = data !== null && data.filter((items) => {
+      return items.category === category
     })
 
-    setAa(newDate)
+    setNewData(newDate)
 
-    const soma = newDate !== null && newDate !== false && newDate.map((items) => {
-      return items.categoria === categoria && Number(items.valor)
+    const sum = newDate !== null && newDate !== false && newDate.map((items) => {
+      return items.category === category && Number(items.value)
     }).reduce((a,b) => a + b, 0)
 
-    setTotal(soma)
-  }, [categoria])
+    setTotal(sum)
+  }, [category])
 
   return (
     <>
-    <Header />
-    <main className={styles.container}>
-      <section>
-        <button className={styles.voltar} onClick={() => setVoltar(true)}>Voltar</button>
+      <Header />
 
-        {
-        Voltar === true  && <Redirect to="/" />
-        }
-        <div>
-        <select
-            id="tipo"
-            value={despesas}
-            onChange={(e) => setDespesas(e.target.value)}
-          >
-            <option value="" disabled>Selecione</option>
-            <option value="entrada">Entrada</option>
-            <option value="saida">Saida</option>
-        </select>
+      <main className={styles.container}>
+        <section>
+          <button className={styles.voltar} onClick={() => setInitial(true)}>Voltar</button>
 
-        
-        <select
-            id="categoria"
-            value={categoria}
-            onChange={(e) => setCategoria(e.target.value)}
-          >
-            <option value="" disabled>Selecione</option>
-            <option value="contas">Contas</option>
-            <option value="laser">Laser</option>
-            <option value="mercado">Mercado</option>
-            <option value="pagamento">Pagamento</option>
-            <option value="roupas">Roupas</option>
-        </select>
-        </div>
-        {
-         total > 0 && 
-         <div className={styles.saldo}>
-         <h1>Total</h1>
-         <span>R$ {total}</span> 
-         </div>
-         }
+          {initial === true  && <Redirect to="/" />}
 
-         
+          <div>
+            <select
+                id="tipo"
+                value={expenses}
+                onChange={(e) => setExpenses(e.target.value)}
+              >
+                <option value="" disabled>Selecione</option>
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saida</option>
+            </select>
 
+          
+            <select
+                id="categoria"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="" disabled>Selecione</option>
+                <option value="alimentação">Alimentação</option>
+                <option value="casa">Casa</option>
+                <option value="despesas">Despesas</option>
+                <option value="impostos">Impostos</option>
+                <option value="laser">Laser</option>
+                <option value="saúde">Saúde</option>
+                <option value="trabalho">Trabalho</option>
+            </select>
+          </div>
+
+          {total > 0 && 
+            <div className={styles.saldo}>
+              <h1>Total</h1>
+              <span>R$ {total}</span> 
+            </div>
+          }
       </section>
 
       <section>
-        {
-          aa !== null && aa !== false &&
-
+        {newData !== null && newData !== false &&
           <table className = {styles.table}>
-          <thead>
-            <tr>
-              <th><strong className="my-teams-button">Titulo</strong></th>
-              <th><strong className="my-teams-button">Tipo</strong></th>
-              <th><strong className="my-teams-button">Categoria</strong></th>
-              <th><strong className="my-teams-button">Valor</strong></th>
-              <th><strong className="my-teams-button">Data</strong></th>
-            </tr>
-          </thead>
-          <tbody>
-            {aa !== null && aa !== false && aa.map((items) => (
-              <tr key={items.id}>
-                <td>{items.titulo}</td>
-                <td>{items.tipo}</td>
-                <td>{items.categoria}</td>
-                {
-                  items.tipo === 'saida' ? 
-                    <td style={{color: 'red'}}>{items.valor}</td> :
-                    <td>{items.valor}</td>
-                }
-                <td>{items.data}</td>
+            <thead>
+              <tr>
+                <th><strong className="my-teams-button">Titulo</strong></th>
+                <th><strong className="my-teams-button">Tipo</strong></th>
+                <th><strong className="my-teams-button">Categoria</strong></th>
+                <th><strong className="my-teams-button">Valor</strong></th>
+                <th><strong className="my-teams-button">Data</strong></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {newData !== null && newData !== false && newData.map((items) => (
+                <tr key={items.id}>
+                <td>{items.title}</td>
+                <td>{items.type}</td>
+                <td>{items.category}</td>
+                {items.type === 'saida' ? 
+                  <td style={{color: 'red'}}>{items.value}</td> :
+                  <td>{items.value}</td>
+                }
+                <td>{items.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         }
       </section>
-
-      
-
     </main>
-    </>
+  </>
   )
 }
 

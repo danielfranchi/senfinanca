@@ -2,10 +2,8 @@
   background: #fff;
   border-radius: 3px;
   border: 1px solid #e6e6e6;
-  padding: 16px;
   max-width: 400px;
   padding: 15px 0;
-  /* margin: 50px auto; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -33,7 +31,6 @@
 
 .form button {
   color: white;
-  /* background: #5f9ea0; */
   background: #f2295b;
   border: none;
   border-radius: 5px;
@@ -53,11 +50,6 @@
 
 .table {
   padding-bottom: 2rem;
-
-  /* width: 100%; */
-  /* text-align: center;
-  justify-content: center; */
-
 }
 
 .table th, td {
@@ -81,19 +73,14 @@
 .home {
   display: grid;
   grid-template-columns: repeat(2,1fr);
-
   width: 960px;
   margin: auto;
-
   padding: 50px;
-
   gap: 20px;
-
 }
 
 .demonstrative {
   color: white;
-  /* background: #5f9ea0; */
   background: #f2295b;
   border: none;
   border-radius: 5px;
