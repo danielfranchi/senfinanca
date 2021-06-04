@@ -17,7 +17,7 @@ In addition, it is good to have an editor to work with the code like [VSCode] (h
 ### 🎲 Running the Backend (API)
 
 ```bash
-[https://api-rest-finance.herokuapp.com/finances](https://api-rest-finance.herokuapp.com/finances)
+# API-REST: https://api-rest-finance.herokuapp.com/finances
 ```
 
 ### :computer: Running the Front-End (React)
