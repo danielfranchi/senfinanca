@@ -2,6 +2,7 @@
   "name": "senfinanca-app",
   "version": "0.1.0",
   "engines": {
+    "npm": "7.10.0",
     "node": "14.17.0"
   },
   "private": true,
