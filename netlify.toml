@@ -1,0 +1,4 @@
+[build]
+base = "."
+comand = "npm rum build"
+publish = "./build/"
